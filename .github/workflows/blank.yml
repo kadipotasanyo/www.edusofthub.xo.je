@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EduSoftHub Matrix Pro - Developed by Mr.GHost</title>
+    <style>
+        /* Super Cyber Neon Space Background */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 15px; 
+            background: radial-gradient(circle at 50% 50%, #120024 0%, #080014 50%, #020005 100%);
+            background-attachment: fixed; 
+            color: #fff; 
+            overflow-x: hidden; 
+            position: relative;
+            transition: background 0.5s ease;
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        /* Animated Deep Space Cyber Grid Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center;
+            transform: perspective(600px) rotateX(60deg) translateY(-150px);
+            transform-origin: top center;
+            animation: gridScroll 14s linear infinite;
+            z-index: -2;
+        }
+
+        /* Deep Cosmic Nebula Glows */
+        .nebula-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255, 0, 127, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(121, 40, 202, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(0, 112, 243, 0.12) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+            transition: all 0.8s ease;
+        }
+
+        @keyframes gridScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+        
+        /* --- TITLE ANIMATIONS (Rainbow & Float) --- */
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatTitle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.4)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.6)); }
+            100% { filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.4)); }
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap; 
+            gap: 15px;
+            margin: 10px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        h1 { 
+            font-size: clamp(2.2em, 5vw, 4.2em); 
+            margin: 0; 
+            background: linear-gradient(-45deg, #FF007F, #FF9800, #00FFCC, #7928CA, #0070F3, #38ef7d);
+            background-size: 300% 300%;
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-weight: 900; 
+            animation: 
+                rainbowShift 6s ease infinite, 
+                floatTitle 4s ease-in-out infinite,
+                titleGlow 4s ease-in-out infinite;
+            display: inline-block;
+            letter-spacing: -1px;
+            cursor: default;
+            user-select: none;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        /* --- ANIMATED CREATOR BADGE (BINAGALAN AT PININO) --- */
+        @keyframes badgeGlitch {
+            0% { text-shadow: 1px 1px 0px rgba(0, 255, 204, 0.5), -1px -1px 0px rgba(255, 0, 127, 0.5); transform: translateY(0px); }
+            25% { text-shadow: -1px 0.5px 0px rgba(0, 255, 204, 0.5), 1px -0.5px 0px rgba(255, 0, 127, 0.5); transform: translateY(-1px); }
+            50% { text-shadow: 1px -1px 0px rgba(0, 255, 204, 0.6), -1px 1px 0px rgba(255, 0, 127, 0.6); transform: translateY(0px) scale(1.01); }
+            75% { text-shadow: -0.5px -1px 0px rgba(0, 255, 204, 0.5), 0.5px 1px 0px rgba(255, 0, 127, 0.5); transform: translateY(-0.5px); }
+            100% { text-shadow: 1px 1px 0px rgba(0, 255, 204, 0.5), -1px -1px 0px rgba(255, 0, 127, 0.5); transform: translateY(0px); }
+        }
+
+        @keyframes textColorPulse {
+            0% { color: #00FFCC; }
+            50% { color: #FFF500; }
+            100% { color: #00FFCC; }
+        }
+
+        .creator-badge {
+            font-size: clamp(0.9em, 3vw, 1.2em);
+            font-weight: 800;
+            color: #00FFCC;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            display: inline-block;
+            /* Ginawang 7s at 10s para mas swabe at mabagal ang takbo */
+            animation: badgeGlitch 7s infinite ease-in-out, textColorPulse 10s infinite;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .creator-badge span {
+            color: #FF007F;
+            font-weight: 900;
+            position: relative;
+            background: linear-gradient(90deg, #FF007F, #ff7b00, #FF007F);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            animation: rainbowShift 5s linear infinite; /* Binagalan din ang kulay ng pangalan */
+        }
+
+        /* --- AI ASSISTANT STYLING --- */
+        @keyframes aiPulse {
+            0% { transform: scale(1) translateY(0px); filter: drop-shadow(0 0 10px #00FFCC); }
+            50% { transform: scale(1.05) translateY(-5px); filter: drop-shadow(0 0 20px #00FFCC); }
+            100% { transform: scale(1) translateY(0px); filter: drop-shadow(0 0 10px #00FFCC); }
+        }
+
+        @keyframes greetPop {
+            0% { opacity: 0; transform: scale(0) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0px); }
+        }
+
+        .ai-assistant-wrapper {
+            position: relative;
+            display: inline-block;
+            z-index: 1000;
+        }
+
+        .ai-assistant {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-assistant:hover { transform: rotate(15deg) scale(1.15); }
+
+        .ai-bot-icon {
+            font-size: 2.5em;
+            color: #fff;
+            animation: aiPulse 4s ease-in-out infinite;
+            user-select: none;
+        }
+
+        .ai-greeting {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(8, 4, 16, 0.95);
+            border: 2px solid #00FFCC;
+            padding: 10px 15px;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 0.8em;
+            font-weight: bold;
+            white-space: nowrap;
+            opacity: 0; 
+            pointer-events: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 255, 204, 0.3);
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .ai-greeting::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #00FFCC transparent transparent transparent;
+        }
+
+        .ai-assistant-wrapper:hover .ai-greeting {
+            opacity: 1;
+            animation: greetPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* --- SCROLLABLE AI PANEL --- */
+        .ai-command-panel {
+            position: absolute;
+            top: 65px;
+            right: -130px;
+            background: rgba(8, 3, 20, 0.98);
+            border: 2px solid #00FFCC;
+            backdrop-filter: blur(30px);
+            border-radius: 24px;
+            width: 320px;
+            padding: 15px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(0, 255, 204, 0.15);
+            opacity: 0;
+            transform: translateY(-15px) scale(0.9);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: left;
+        }
+
+        .ai-assistant-wrapper:hover .ai-command-panel {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .ai-assistant-wrapper:hover .ai-greeting {
+            opacity: 0 !important;
+            animation: none !important;
+        }
+
+        .ai-panel-title {
+            font-size: 1em;
+            font-weight: 800;
+            color: #00FFCC;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-panel-desc {
+            font-size: 0.8em;
+            color: #a0aec0;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .ai-chips-scrollbox {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 240px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .ai-chips-scrollbox::-webkit-scrollbar { width: 5px; }
+        .ai-chips-scrollbox::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.01); }
+        .ai-chips-scrollbox::-webkit-scrollbar-thumb { background: rgba(0, 255, 204, 0.3); border-radius: 10px; }
+
+        .ai-search-chip {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ai-search-chip:hover {
+            background: rgba(0, 255, 204, 0.08);
+            border-color: #00FFCC;
+            transform: translateX(4px);
+            color: #00FFCC;
+        }
+
+        /* Core Card System */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 255, 204, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(0, 255, 204, 0.5), 0 0 15px rgba(0, 255, 204, 0.2); }
+            100% { box-shadow: 0 0 15px rgba(0, 255, 204, 0.2); }
+        }
+
+        @keyframes cyberScan {
+            0% { border-color: rgba(255, 0, 127, 0.4); box-shadow: 0 0 20px rgba(255, 0, 127, 0.2); }
+            33% { border-color: rgba(0, 255, 204, 0.5); box-shadow: 0 0 30px rgba(0, 255, 204, 0.3); }
+            66% { border-color: rgba(255, 245, 0, 0.4); box-shadow: 0 0 25px rgba(255, 245, 0, 0.2); }
+            100% { border-color: rgba(255, 0, 127, 0.4); box-shadow: 0 0 20px rgba(255, 0, 127, 0.2); }
+        }
+
+        .category {
+            opacity: 0;
+            transform: translateY(25px) scale(0.98);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            will-change: transform, opacity;
+        }
+
+        .category.show { opacity: 1; transform: translateY(0) scale(1); }
+        .category.hidden-node { display: none !important; }
+        
+        header { 
+            background: rgba(8, 4, 16, 0.8); border: 2px solid rgba(255, 0, 127, 0.4);
+            backdrop-filter: blur(20px); padding: 30px 15px; text-align: center; 
+            border-radius: 24px; margin-bottom: 30px; animation: cyberScan 8s infinite ease-in-out;
+            width: 100%;
+        }
+        
+        .domain-badge { 
+            font-weight: bold; color: #fff; background: linear-gradient(45deg, #ff007f, #7928ca); 
+            padding: 6px 20px; border-radius: 25px; display: inline-block; margin-bottom: 15px; 
+            font-size: 0.85em; box-shadow: 0 0 25px rgba(255, 0, 127, 0.6); 
+            text-transform: uppercase; letter-spacing: 2px; 
+        }
+        
+        .search-container { max-width: 650px; margin: 25px auto 0 auto; width: 100%; }
+        .search-bar { 
+            width: 100%; padding: 15px 22px; font-size: 1em; border-radius: 50px; 
+            border: 2px solid #00FFCC; background: rgba(3, 1, 6, 0.9); color: #fff;
+            outline: none; box-sizing: border-box; animation: pulseGlow 4s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus { 
+            box-shadow: 0 0 30px #ff007f, inset 0 0 10px rgba(255, 0, 127, 0.4); 
+            border-color: #ff007f; transform: scale(1.01); animation: none;
+        }
+
+        .metrics { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 25px; font-weight: bold; font-size: 0.95em; }
+        
+        .metric-badge { 
+            background: rgba(0, 0, 0, 0.6); padding: 10px 18px; border-radius: 14px; 
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); 
+            cursor: pointer; user-select: none; transition: all 0.3s ease;
+        }
+        .metric-badge:hover {
+            transform: translateY(-3px); background: rgba(255, 255, 255, 0.05);
+            border-color: #00FFCC;
+        }
+
+        .container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center; 
+            margin-top: 20px; 
+            width: 100%;
+        }
+        
+        .category { 
+            background: rgba(10, 5, 22, 0.8); border-radius: 20px; padding: 20px; 
+            width: 100%; 
+            max-width: 360px; 
+            display: flex; flex-direction: column; position: relative;
+            overflow: hidden; backdrop-filter: blur(15px);
+        }
+        .category:hover { transform: translateY(-8px); background: rgba(20, 10, 42, 0.92); }
+        .category h2 { 
+            font-size: 1.15em; margin-top: 0; padding-bottom: 12px; text-align: center; 
+            font-weight: 800; text-transform: uppercase; min-height: 55px; display: flex; 
+            align-items: center; justify-content: center; line-height: 1.4; letter-spacing: 0.5px;
+        }
+        
+        ul { list-style-type: none; padding: 0; margin: 0; flex-grow: 1; }
+        li { 
+            margin-bottom: 12px; padding: 12px; background: rgba(255, 255, 255, 0.02); 
+            border-radius: 14px; display: flex; justify-content: space-between; 
+            align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4); 
+            font-weight: 600; font-size: 0.9em; border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.2s ease;
+            gap: 10px;
+        }
+        li:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(4px); }
+        li span { word-break: break-word; }
+        
+        .download-btn { 
+            color: #fff; padding: 8px 14px; border-radius: 30px; text-decoration: none; 
+            font-size: 0.75em; font-weight: bold; transition: all 0.2s ease; 
+            white-space: nowrap; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .download-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        /* Floating Cyber Signature Watermark */
+        .cyber-signature {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(10, 5, 22, 0.8);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.7em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+        .cyber-signature span { color: #FF007F; }
+
+        /* --- SMARTPHONE OPTIMIZATION (MEDIA QUERIES) --- */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            header { padding: 20px 10px; margin-bottom: 20px; border-radius: 16px; }
+            .container { gap: 15px; }
+            .category { padding: 15px; border-radius: 16px; max-width: 100%; }
+            .metric-badge { font-size: 0.85em; padding: 8px 12px; width: 100%; text-align: center; }
+            
+            .ai-command-panel {
+                position: fixed;
+                top: auto;
+                bottom: 80px;
+                right: 5%;
+                left: 5%;
+                width: 90%;
+                margin: 0 auto;
+                box-shadow: 0 -10px 40px rgba(0,0,0,0.9);
+            }
+            .cyber-signature { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+<div class="nebula-overlay" id="nebula"></div>
+
+<header>
+    <div class="domain-badge">edusofthub.com</div>
+    
+    <div class="title-container">
+        <h1>EduSoftHub Cyber Space</h1>
+        
+        <div class="ai-assistant-wrapper">
+            <div class="ai-assistant" title="I-click o i-hover para ilabas lahat ng kategorya">
+                <div class="ai-bot-icon">🤖</div>
+                <div class="ai-greeting">Kumusta! Piliin ang kategoryang hahanapin ko.</div>
+            </div>
+
+            <div class="ai-command-panel">
+                <div class="ai-panel-title">🤖 Cyber AI Co-Pilot</div>
+                <div class="ai-panel-desc">Piliin ang nais mong kategorya para i-filter ang deck:</div>
+                <div class="ai-chips-scrollbox" id="aiScrollbox"></div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="creator-badge">System Core Developed by: <span>Mr.GHost</span></div>
+    </div>
+    
+    <p style="font-size: 0.9em; padding: 0 10px;">Dynamic Interactive Nexus: Infinite Nodes with Synchronized Auto-Scroll UI Navigation.</p>
+    
+    <div class="search-container">
+        <input type="text" id="appSearch" class="search-bar" placeholder="Mag-search sa matrix (e.g., GitHub, Tubi, ChatGPT)..." oninput="handleSearch(event)">
+    </div>
+
+    <div class="metrics">
+        <div class="metric-badge" onclick="triggerSpaceTheme()" title="Magpalit ng Tema">
+            🪐 Background: <span id="bgStatus" style="color: #00FFCC;">Super Cyber Space</span>
+        </div>
+        <div class="metric-badge" onclick="simulateEngineTest()" title="Diagnostic Check">
+            ⚡ Engine System: <span id="engineStatus" style="color: #FF007F;">Lag-Free Filter</span>
+        </div>
+        <div class="metric-badge" onclick="aiSearchInject('GitHub Developers Suite')" title="Auto-Isolate GitHub Infrastructure">
+            🐙 Hub: <span style="color: #00FFCC;">GitHub Node</span> | 🎬 Movies: <span style="color: #FFF500;">Legal Streams</span>
+        </div>
+    </div>
+</header>
+
+<div class="container" id="softwareGrid"></div>
+
+<div class="cyber-signature">Matrix Architect: <span>Mr.GHost</span></div>
+
+<script>
+    const techSectorsDatapool = [
+        [{ name: "Figma UI/UX Desktop App", url: "https://www.figma.com/downloads/" }, { name: "Krita Creative Engine", url: "https://krita.org/en/download/krita-desktop/" }, { name: "Inkscape Vector Layout", url: "https://inkscape.org/release/" }, { name: "GIMP Graphic System", url: "https://www.gimp.org/downloads/" }],
+        [{ name: "Blender 3D Modeling Engine", url: "https://www.blender.org/download/" }, { name: "AutoCAD Student Architecture", url: "https://www.autodesk.com/education/edu-software/" }, { name: "FreeCAD Open Source Engine", url: "https://www.freecad.org/downloads.php" }, { name: "Fritzing PCB Prototyping", url: "https://fritzing.org/download/" }],
+        [{ name: "OBS Studio Recorder Engine", url: "https://obsproject.com/download" }, { name: "VLC Media Player Universal", url: "https://www.videolan.org/vlc/" }, { name: "HandBrake Encoder Engine", url: "https://handbrake.fr/downloads.php" }, { name: "Audacity Sound Architecture", url: "https://www.audacityteam.org/download/" }],
+        [{ name: "Windows 11 PRO Official", url: "https://www.microsoft.com/software-download/windows11" }, { name: "Windows 10 Setup Hub", url: "https://www.microsoft.com/software-download/windows10" }, { name: "Ubuntu Desktop Linux OS", url: "https://ubuntu.com/download/desktop" }, { name: "Kali Linux Security OS", url: "https://www.kali.org/get-kali/" }],
+        [{ name: "Visual Studio Code IDE", url: "https://code.visualstudio.com/Download" }, { name: "Python Compiler Core", url: "https://www.python.org/downloads/" }, { name: "Java JDK Developer Kit", url: "https://www.oracle.com/java/technologies/downloads/" }, { name: "Node.js Runtime Platform", url: "https://nodejs.org/en/download/" }],
+        [{ name: "MySQL Database Platform", url: "https://dev.mysql.com/downloads/installer/" }, { name: "PostgreSQL Server Core", url: "https://www.postgresql.org/download/" }, { name: "XAMPP Deployment Stack", url: "https://www.apachefriends.org/download.html" }, { name: "MongoDB Server Cluster", url: "https://www.mongodb.com/try/download/community" }],
+        [{ name: "Google Chrome Browser", url: "https://www.google.com/chrome/" }, { name: "Mozilla Firefox Quantum", url: "https://www.mozilla.org/firefox/new/" }, { name: "Brave Privacy Shield Web", url: "https://brave.com/download/" }, { name: "Everything Search Engine", url: "https://www.voidtools.com/downloads/" }],
+        [{ name: "Microsoft 365 Cloud Office", url: "https://www.microsoft.com/microsoft-365" }, { name: "LibreOffice Suite Core", url: "https://www.libreoffice.org/download/" }, { name: "WPS Office Desktop Platform", url: "https://www.wps.com/download/" }, { name: "Adobe Acrobat Reader Engine", url: "https://get.adobe.com/reader/" }],
+        [{ name: "Anaconda Science Distribution", url: "https://www.anaconda.com/download" }, { name: "RStudio Analytics Center", url: "https://posit.co/download/rstudio-desktop/" }, { name: "Microsoft Power BI Desktop", url: "https://powerbi.microsoft.com/desktop/" }, { name: "Notion Workspace Environment", url: "https://www.notion.so/desktop" }],
+        [{ name: "VirtualBox Hypervisor Core", url: "https://www.virtualbox.org/wiki/Downloads" }, { name: "Docker Engine Desktop Suite", url: "https://www.docker.com/products/docker-desktop/" }, { name: "Wireshark Inspection System", url: "https://www.wireshark.org/download.html" }, { name: "Nmap Engine Mapping Unit", url: "https://nmap.org/download.html" }],
+        [{ name: "ChatGPT OpenAI System", url: "https://chatgpt.com" }, { name: "Hugging Face AI Repository", url: "https://huggingface.co" }, { name: "Midjourney Image Studio", url: "https://www.midjourney.com" }, { name: "Stable Diffusion AI Web", url: "https://stability.ai" }],
+        
+        [
+            { name: "Tubi TV (Free Movies & Shows)", url: "https://tubitv.com/" },
+            { name: "Pluto TV (Live TV & Streaming)", url: "https://pluto.tv/" },
+            { name: "Plex Free Movies System", url: "https://www.plex.tv/watch-free/" },
+            { name: "Internet Archive Movie Vault", url: "https://archive.org/details/movies" }
+        ],
+        [
+            { name: "YouTube Free-to-Watch Movies", url: "https://www.youtube.com/feed/storefront?bp=kgEmCGQvby9teC8SBm1vdmllcxgBOPcDSAJQAnoGZGVza3RvcA%3D%3D" },
+            { name: "The Roku Channel (Free Hub)", url: "https://therokuchannel.roku.com/" },
+            { name: "Crackle Free Streaming", url: "https://www.crackle.com/" },
+            { name: "Freevee (Amazon Free Movies)", url: "https://www.amazon.com/Freevee" }
+        ],
+        [
+            { name: "Kanopy (Free with Library Card)", url: "https://www.kanopy.com/" },
+            { name: "Hoopla Digital Free Library", url: "https://www.hoopladigital.com/" },
+            { name: "Popcornflix Legal Stream Hub", url: "https://www.popcornflix.com/" },
+            { name: "Filmzie Free Movies & Indice", url: "https://filmzie.com/" }
+        ],
+        [
+            { name: "GitHub Official Desktop App", url: "https://desktop.github.com/" },
+            { name: "GitHub CLI Terminal Tool", url: "https://cli.github.com/" },
+            { name: "GitHub Mobile (iOS & Android)", url: "https://github.com/mobile" },
+            { name: "GitHub Documentation & Guides", url: "https://docs.github.com" }
+        ]
+    ];
+
+    const designFields = [
+        "Vector Illustration", "3D Architecture Structural", "Cinematic Video Post", 
+        "Game Space Environment", "Mechanical Industrial CAD", "Web System Frontend", 
+        "Corporate Enterprise Branding", "Mobile UI/UX Interaction", "Data Analytical Information", 
+        "VFX Simulated Special Effects", "Generative AI Systems", "Free Movie Streaming Sites", 
+        "GitHub Developers Suite"
+    ];
+    
+    const designSubTopics = ["Advanced Concepts", "Thesis Research", "Industry Boot Camp", "Portfolio Studio", "Capstone Core", "Practical Seminar", "Creative Workshop", "Experimental Design", "Technical Applied Field", "Professional Training"];
+    const techSectors = ["Alpha Core Division", "Global Tech Innovation", "Strategic Operations Hub", "Creative Software Lab", "Pioneering Systems Unit", "Next-Gen Framework Block", "Synergy Network Grid", "Foundation Engineering", "Elite Technology Cluster", "Summit Corporate Sector", "Entertainment Stream Domain", "Open Source Base"];
+    const neonColors = ["#ff007f", "#00ffcc", "#ff9800", "#7928ca", "#0070f3", "#38ef7d", "#fff500"];
+    
+    const categoryEmojis = ["🎨", "📐", "🎬", "🎮", "⚙️", "💻", "🏢", "📱", "📊", "💥", "🧠", "🍿", "🐙"];
+
+    let cardsDataCache = [];
+    let currentThemeIndex = 0;
+
+    function aiSearchInject(keyword) {
+        const searchInput = document.getElementById("appSearch");
+        searchInput.focus();
+        searchInput.value = keyword;
+        filterSoftware(keyword);
+        
+        setTimeout(() => {
+            const visibleNode = document.querySelector('.category:not(.hidden-node)');
+            if (visibleNode) {
+                visibleNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 120);
+    }
+
+    function populateAICopilotMenu() {
+        const scrollbox = document.getElementById("aiScrollbox");
+        let chipsHTML = "";
+        
+        designFields.forEach((field, index) => {
+            const emoji = categoryEmojis[index] || "✨";
+            chipsHTML += `
+                <div class="ai-search-chip" onclick="aiSearchInject('${field}')">
+                    <span>${field}</span> <span class="ai-chip-icon">${emoji}</span>
+                </div>
+            `;
+        });
+
+        chipsHTML += `
+            <div class="ai-search-chip" onclick="aiSearchInject('Windows')">
+                <span>Windows & OS Platforms</span> <span class="ai-chip-icon">🖥️</span>
+            </div>
+            <div class="ai-search-chip" onclick="aiSearchInject('Tubi TV')">
+                <span>Tubi TV Special Node</span> <span class="ai-chip-icon">🎥</span>
+            </div>
+            <div class="ai-search-chip" onclick="aiSearchInject('GitHub Desktop')">
+                <span>GitHub Desktop App</span> <span class="ai-chip-icon">🐙</span>
+            </div>
+        `;
+        
+        scrollbox.innerHTML = chipsHTML;
+    }
+
+    function triggerSpaceTheme() {
+        const nebula = document.getElementById("nebula");
+        const bgStatus = document.getElementById("bgStatus");
+        currentThemeIndex = (currentThemeIndex + 1) % 4;
+        if (currentThemeIndex === 0) {
+            nebula.style.background = "radial-gradient(circle at 15% 25%, rgba(255, 0, 127, 0.12) 0%, transparent 40%), radial-gradient(circle at 85% 75%, rgba(121, 40, 202, 0.18) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(0, 112, 243, 0.12) 0%, transparent 40%)";
+            bgStatus.innerText = "Super Cyber Space"; bgStatus.style.color = "#00FFCC";
+        } else if (currentThemeIndex === 1) {
+            nebula.style.background = "radial-gradient(circle at 50% 30%, rgba(0, 255, 204, 0.25) 0%, transparent 50%), radial-gradient(circle at 10% 80%, rgba(0, 112, 243, 0.2) 0%, transparent 40%)";
+            bgStatus.innerText = "Deep Neon Void"; bgStatus.style.color = "#0070f3";
+        } else if (currentThemeIndex === 2) {
+            nebula.style.background = "radial-gradient(circle at 80% 20%, rgba(255, 0, 127, 0.25) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(121, 40, 202, 0.25) 0%, transparent 40%)";
+            bgStatus.innerText = "Galactic Rift"; bgStatus.style.color = "#ff007f";
+        } else {
+            nebula.style.background = "radial-gradient(circle at 50% 50%, rgba(255, 152, 0, 0.2) 0%, transparent 60%), radial-gradient(circle at 90% 10%, rgba(255, 245, 0, 0.15) 0%, transparent 35%)";
+            bgStatus.innerText = "Amber Nebula"; bgStatus.style.color = "#ff9800";
+        }
+        document.getElementById("card-1").scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function simulateEngineTest() {
+        const status = document.getElementById("engineStatus");
+        status.innerText = "⚙️ Scanning Matrix..."; status.style.color = "#fff500";
+        document.getElementById("card-500").scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+            status.innerText = "✔️ Stable Grids"; status.style.color = "#38ef7d";
+            setTimeout(() => { status.innerText = "Lag-Free Filter"; status.style.color = "#FF007F"; }, 2000);
+        }, 1500);
+    }
+
+    function buildReliableEcosystem() {
+        const grid = document.getElementById("softwareGrid");
+        let htmlOutput = "";
+        for (let i = 1; i <= 1000; i++) {
+            let specificTitle = ""; let targetSectorIndex = 0;
+            const colorPicked = neonColors[(i - 1) % neonColors.length];
+            const idxField = (i - 1) % designFields.length;
+            const idxSub = (Math.floor((i - 1) / designFields.length) + Math.floor(i / 100)) % designSubTopics.length;
+            const idxSector = Math.floor((i - 1) / (designFields.length * designSubTopics.length)) % techSectors.length;
+
+            if (designFields[idxField] === "Free Movie Streaming Sites") {
+                targetSectorIndex = 11 + (i % 3); 
+                specificTitle = `Cat ${i}: ${designFields[idxField]} <br><span style="font-weight:500; font-size:0.85em; color:#fff500;">🍿 [Free Movie Node]</span>`;
+            } else if (designFields[idxField] === "GitHub Developers Suite") {
+                targetSectorIndex = 14; 
+                specificTitle = `Cat ${i}: ${designFields[idxField]} <br><span style="font-weight:500; font-size:0.85em; color:#00ffcc;">🐙 [GitHub Repository]</span>`;
+            } else if (i === 2) {
+                specificTitle = `Cat 2: Advanced UI/UX Web Design Studio <br><span style="font-weight:500; font-size:0.85em; color:#a0aec0;">Professional Portfolio</span>`;
+                targetSectorIndex = 0;
+            } else if (i === 130) {
+                specificTitle = `Cat 130: VFX Simulated Special Effects <br><span style="font-weight:500; font-size:0.85em; color:#a0aec0;">[VFX Masterclass]</span>`;
+                targetSectorIndex = 2;
+            } else if (i % 11 === 0) {
+                specificTitle = `Cat ${i}: Neural Network Framework - ${designSubTopics[idxSub]} <br><span style="font-weight:500; font-size:0.85em; color:#a0aec0;">[Generative AI Systems]</span>`;
+                targetSectorIndex = 10; 
+            } else {
+                targetSectorIndex = idxField % 11;
+                specificTitle = `Cat ${i}: ${designFields[idxField]} <br><span style="font-weight:500; font-size:0.85em; color:#a0aec0;">[${techSectors[idxSector]}]</span>`;
+            }
+            
+            htmlOutput += `
+                <div class="category" id="card-${i}" style="border: 1px solid ${colorPicked}40; border-top: 5px solid ${colorPicked};">
+                    <h2 style="color: ${colorPicked}; text-shadow: 0 0 15px ${colorPicked}45;">${specificTitle}</h2>
+                    <ul>
+            `;
+            
+            const currentCategoryApps = techSectorsDatapool[targetSectorIndex];
+            let searchableText = i + " " + specificTitle.replace(/<[^>]*>/g, ' ') + " ";
+            
+            currentCategoryApps.forEach(app => {
+                searchableText += app.name + " ";
+                let buttonText = "Download";
+                if (designFields[idxField] === "Free Movie Streaming Sites") buttonText = "Stream";
+                if (designFields[idxField] === "GitHub Developers Suite") buttonText = "Open";
+
+                htmlOutput += `<li><span>${app.name}</span><a href="${app.url}" target="_blank" class="download-btn" style="background: linear-gradient(45deg, ${colorPicked}, rgba(255,255,255,0.1)); box-shadow: 0 4px 15px ${colorPicked}35;">${buttonText}</a></li>`;
+            });
+            htmlOutput += `</ul></div>`;
+            cardsDataCache.push({ id: `card-${i}`, text: searchableText.toLowerCase() });
+        }
+        grid.innerHTML = htmlOutput;
+        initScrollAnimations();
+    }
+
+    function initScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('show'); } });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.category').forEach(card => observer.observe(card));
+    }
+
+    let searchTimeout = null;
+    function handleSearch(event) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => { filterSoftware(event.target.value); }, 250);
+    }
+
+    function filterSoftware(queryValue) {
+        const query = queryValue.toLowerCase().trim();
+        for (let i = 0; i < cardsDataCache.length; i++) {
+            const el = document.getElementById(cardsDataCache[i].id);
+            if (!el) continue;
+            if (cardsDataCache[i].text.includes(query)) { el.classList.remove('hidden-node'); el.classList.add('show'); }
+            else { el.classList.remove('show'); el.classList.add('hidden-node'); }
+        }
+    }
+
+    window.onload = function() {
+        buildReliableEcosystem();
+        populateAICopilotMenu();
+    };
+</script>
+
+</body>
+</html>
